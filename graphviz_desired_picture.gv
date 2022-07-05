@@ -3,7 +3,6 @@
 digraph G {
   compound=true;
   //rankdir=LR;
-
   
   subgraph cluster_file3 {
     URL="https://en.wikipedia.org/wiki/Portraits_of_Vincent_van_Gogh"

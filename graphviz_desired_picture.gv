@@ -1,0 +1,30 @@
+// https://dreampuf.github.io/GraphvizOnline/#digraph%20G%20%7B%0A%20%20compound%3Dtrue%3B%0A%20%20%2F%2Frankdir%3DLR%3B%0A%0A%20%20%0A%20%20subgraph%20cluster_file3%20%7B%0A%20%20%20%20URL%3D%22https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPortraits_of_Vincent_van_Gogh%22%0A%20%20%20%20%2F%2F%20because%20file3%20is%20a%20cluster%2C%20%0A%20%20%20%20%2F%2F%20we%20need%20a%20hidden%20node%20to%20connect%20to%0A%20%20%20%20f3%20%5Bstyle%20%3D%20invis%5D%3B%0A%20%20%20%20f1%20%5Bshape%3Drectangle%2C%20URL%3D%22http%3A%2F%2Fgoogle.com%2F%22%5D%3B%0A%20%20%20%20f4%20%5Bshape%3Drectangle%5D%3B%0A%20%20%20%20f1%20-%3E%20f4%3B%0A%20%20%20%20f4%20-%3E%20f1%3B%0A%20%20%20%20label%20%3D%20%22file%203%22%3B%0A%20%20%7D%0A%0Af2%20%5Bshape%3Drectangle%5D%3B%0Af1%20-%3E%20f2%3B%0Af2%20-%3E%20f1%3B%0A%0Af5%20%5Bshape%3Drectangle%5D%3B%0A%0A%2F%2F%20as%20per%20https%3A%2F%2Fstackoverflow.com%2Fa%2F2012106%2F1164295%0Af3%20-%3E%20f5%20%5Bltail%3Dcluster_file3%5D%3B%0Af5%20-%3E%20f3%20%5Blhead%3Dcluster_file3%5D%3B%0A%0A%7D
+
+digraph G {
+  compound=true;
+  //rankdir=LR;
+
+  
+  subgraph cluster_file3 {
+    URL="https://en.wikipedia.org/wiki/Portraits_of_Vincent_van_Gogh"
+    // because file3 is a cluster, 
+    // we need a hidden node to connect to
+    f3 [style = invis];
+    f1 [shape=rectangle, URL="http://google.com/"];
+    f4 [shape=rectangle];
+    f1 -> f4;
+    f4 -> f1;
+    label = "file 3";
+  }
+
+f2 [shape=rectangle];
+f1 -> f2;
+f2 -> f1;
+
+f5 [shape=rectangle];
+
+// as per https://stackoverflow.com/a/2012106/1164295
+f3 -> f5 [ltail=cluster_file3];
+f5 -> f3 [lhead=cluster_file3];
+
+}
